@@ -2,8 +2,8 @@
 Web automation test with WebdriverIO and Cucumber
 
 #### Implementation:
-* Using Background keyword
-* Scenario Outline
+* using Background keyword
+* scenario Outline
 * using Cucumber tag
 * parallel multi browser test using Google Chrome dan Microsoft Edge
 * screenshot when test failed
