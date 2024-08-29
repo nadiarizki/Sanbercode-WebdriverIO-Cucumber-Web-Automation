@@ -2,7 +2,9 @@
 Web automation test with WebdriverIO and Cucumber
 
 #### Implementation:
-* using Background keyword
+* page object model
+* gherkin test case
+* Background keyword
 * scenario Outline
 * using Cucumber tag
 * parallel multi browser test using Google Chrome dan Microsoft Edge
