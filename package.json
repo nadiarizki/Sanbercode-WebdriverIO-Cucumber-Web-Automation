@@ -1,0 +1,23 @@
+{
+  "name": "wdio",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/cli": "^9.0.7",
+    "@wdio/cucumber-framework": "^9.0.6",
+    "@wdio/json-reporter": "^9.0.4",
+    "@wdio/local-runner": "^9.0.7",
+    "@wdio/spec-reporter": "^9.0.7",
+    "@wdio/visual-service": "^6.0.0",
+    "wdio-cucumberjs-json-reporter": "^4.1.4",
+    "wdio-light-reporter": "^0.2.7"
+  },
+  "script": {
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "dependencies": {
+    "wdio-html-nice-reporter": "^8.1.6"
+  }
+}
