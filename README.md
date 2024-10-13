@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # wdio-cucumber-web-automation
 Web automation test with WebdriverIO and Cucumber
 
@@ -13,3 +14,7 @@ Web automation test with WebdriverIO and Cucumber
 #### command to run the test cases
 * run specific scenarios: npx wdio run ./wdio.conf.js --cucumberOpts.tags "@positive"
 * run all scenarios: npm run wdio
+=======
+# Sanbercode-WebdriverIO-Cucumber-Web-Automation
+Web automation for Kasir Aja using WebdriverIO, Cucumber and POM
+>>>>>>> e2313e5ae0d811b7feff1f8e02fd9e681a1ca359
