@@ -18,6 +18,7 @@
     "wdio": "wdio run ./wdio.conf.js"
   },
   "dependencies": {
+    "@wdio/allure-reporter": "^9.0.8",
     "wdio-html-nice-reporter": "^8.1.6"
   }
 }

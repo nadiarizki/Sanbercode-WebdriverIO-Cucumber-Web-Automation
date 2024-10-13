@@ -7,8 +7,8 @@ import Page from './page.js';
 class LoginPage extends Page {
 
     // deifine selectors
-    get username () {
-        return $('#user-name');
+    get email () {
+        return $('#email');
     }
 
     get password () {
@@ -16,15 +16,15 @@ class LoginPage extends Page {
     }
 
     get loginButton () {
-        return $('//input[@type="submit"]');
+        return $("//button[normalize-space()='login']");
     }
 
     get errorMessage () {
-        return $('//*[@id="login_button_container"]/div/form/div[3]/h3');
+        return $("//div[@role='alert']");
     }
 
-    async inputUsername (username) {
-        await this.username.setValue(username);
+    async inputEmail (email) {
+        await this.email.setValue(email);
     }
 
     async inputPassword (password) {
@@ -36,19 +36,18 @@ class LoginPage extends Page {
     }
 
     //login using username and password
-    async login (username, password) {
-        await this.username.setValue(username);
+    async login (email, password) {
+        await this.email.setValue(email);
         await this.password.setValue(password);
         await this.loginButton.click();
     }
 
-
-    //validate incorrect password error message is displayed
+        //validate incorrect password error message is displayed
     async validateWrongPasswordError (errorMessage) {
-        await expect(this.errorMessage).toHaveText(
-        expect.stringContaining(errorMessage)
-        )
-    }
+         await expect(this.errorMessage).toHaveText(
+         expect.stringContaining(errorMessage))
+        }
+
 
     //open login page
     open () {

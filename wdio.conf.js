@@ -1,6 +1,16 @@
-import {ReportGenerator, HtmlReporter} from 'wdio-html-nice-reporter';
+// import {ReportGenerator, HtmlReporter} from 'wdio-html-nice-reporter';
+
 import { browser } from '@wdio/globals'
 export const config = {
+
+    beforeScenario: async () => {
+        await browser.deleteAllCookies();
+        await browser.execute(() => {
+            localStorage.clear();
+            sessionStorage.clear();
+        });
+    },
+
     //
     // ====================
     // Runner Configuration
@@ -58,7 +68,7 @@ export const config = {
         browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
     },{
         // capabilities for local browser web tests
-        browserName: 'microsoftedge' // or "firefox", "microsoftedge", "safari"
+        browserName: 'firefox' // or "firefox", "microsoftedge", "safari"
     }],
 
     //
@@ -131,23 +141,9 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec', ['light',{
-        outputDir: './Report',
-        outputFile:`report${new Date()}`,    // html report file will be name this 
-        addScreenshots: true,   // to add screenshots in report make it as true. Default is false
-    }, ["html-nice", {
-        outputDir: './reports',
-        filename: 'report.html',
-        reportTitle: 'Test Report Title',
-        linkScreenshots: true,
-        //to show the report in a browser when done
-        showInBrowser: true,
-        collapseTests: false,
-        //to turn on screenshots after every test
-        useOnAfterCommandForScreenshot: false
-    }
-    ]]
-  ],    //reporters: ['spec','json','cucumberjs-json'],
+    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+
+  //reporters: ['spec','json','cucumberjs-json'],
 
 
     // If you are using Cucumber you need to specify the location of your step definitions.
