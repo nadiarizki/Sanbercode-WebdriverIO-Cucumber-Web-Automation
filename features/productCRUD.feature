@@ -8,19 +8,28 @@ Feature: Login and Product Management
     And user clicks on login button
 
   @positive
-  Scenario: Add New Product
+  Scenario: Success Add New Product
     When user clicks Product button
     Then user should be redirected to the Product page
     And user clicks Add button
     And user inputs product details
     And user clicks Save button
-    And user should see success toast is displayed
+    And user should see product CRUD success toast is displayed
 
 
-  # @positive
-  # Scenario: Update Product Details
-  #   When user clicks Product button
-  #   Then user should be redirected to the Product page
-  #   And user clicks Edit button
-  #   And user updates product details
-  #   And user clicks Save button
+  @positive
+  Scenario: Success Update Product Details
+    When user clicks Product button
+    Then user should be redirected to the Product page
+    When user clicks update product option
+    And user updates product details
+    And user clicks Save button
+    And user should see product CRUD success toast is displayed
+
+  @positive
+  Scenario: Success Delete User 
+    When user clicks Product button
+    Then user should be redirected to the Product page
+    When user clicks delete product option
+    And user clicks Delete product button
+    And user should see product CRUD success toast is displayed

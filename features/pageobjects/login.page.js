@@ -1,9 +1,7 @@
 import { $, expect, browser } from '@wdio/globals'
 import Page from './page.js';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+
 class LoginPage extends Page {
 
     // deifine selectors
@@ -42,11 +40,12 @@ class LoginPage extends Page {
         await this.loginButton.click();
     }
 
-        //validate incorrect password error message is displayed
-    async validateWrongPasswordError (errorMessage) {
-         await expect(this.errorMessage).toHaveText(
+    //validate fail login error message is displayed
+    async validateLoginErrorMessage (errorMessage) {
+        await this.errorMessage.waitForDisplayed({ timeout: 20000 });
+        await expect(this.errorMessage).toHaveText(
          expect.stringContaining(errorMessage))
-        }
+    }
 
 
     //open login page

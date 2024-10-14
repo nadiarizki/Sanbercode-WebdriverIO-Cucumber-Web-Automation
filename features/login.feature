@@ -1,7 +1,7 @@
 @login
 Feature: Login
 
-Scenario: User Success Login
+Scenario: Success Login
     Given user is on the Login page
     When user inputs "nadia@gmail.com" as email
     And user inputs "admin123" as password
@@ -10,7 +10,7 @@ Scenario: User Success Login
 
 
 @negative 
-Scenario Outline: User Failed Login
+Scenario Outline: Unable to Login - <dataset>
     Given user is on the Login page
     When user inputs "<email>" as email
     And user inputs "<password>" as password
@@ -18,7 +18,7 @@ Scenario Outline: User Failed Login
     Then user should see an error message "<errorMessage>"
 
     Examples:
-    | email           | password | errorMessage                              |
-    | nadia@gmail.com |          | \"password\" is not allowed to be empty  |
-    |                 | admin123 | \"email\" is not allowed to be empty     |
-    | nadia@gmail.com | admin1234| Kredensial yang Anda berikan salah        |
+    | dataset            | email           | password | errorMessage                              |
+    | Empty Password     | nadia@gmail.com |          | \"password\" is not allowed to be empty   |
+    | Email Email        |                 | admin123 | \"email\" is not allowed to be empty      |
+    | Invalid Credential | nadia@gmail.com | admin1234| Kredensial yang Anda berikan salah        |

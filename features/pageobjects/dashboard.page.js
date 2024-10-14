@@ -25,12 +25,19 @@ class DashboardPage extends Page {
     
 
     async clickProduct () {
+        await this.productButton.waitForDisplayed({ timeout: 20000 });
         await this.productButton.click();
     }
 
 
     async clickUser () {
+        await this.userButton.waitForDisplayed({ timeout: 20000 });
         await this.userButton.click();
+    }
+
+    async clickCustomer () {
+        await this.customerButton.waitForDisplayed({ timeout: 20000 });
+        await this.customerButton.click();
     }
 
     open() {

@@ -28,20 +28,31 @@ class CustomerPage extends Page {
         return $("//button[normalize-space()='simpan']");
     }
 
+    get successToast () {  
+        return $("//li[@class='chakra-toast']");
+    }
+
     get threeDotsButton () {  
-        return $("//button[@id='menu-button-55']");
+        return $("//td[contains(text(), 'Naadia')]/following-sibling::td//button[contains(@class, 'menu-button')]");
     }
 
     get updateOption () {  
-        return $("(//a[normalize-space()='ubah'])[1]");
-    }
+        return $("//a[contains(text(), 'ubah')]");
+    } 
+
+    get deleteOption () {  
+        return $("//button[contains(text(), 'hapus')]");
+    }  
+
+    get deleteButton () {  
+        return $("//button[normalize-space()='Delete']");
+    }  
     
-    // validate user is redirected to checkout page and item is added to cart
+    // validate user is redirected to Customer Page
     async validateOnCustomerPage () {
         await expect(browser).toHaveUrl('https://kasirdemo.vercel.app/customers');
     }
     
-
     async clickAddCustomer () {
         await this.addButton.click();
     }
@@ -51,29 +62,37 @@ class CustomerPage extends Page {
         await this.inputPhoneNo.setValue("087884398009");
         await this.inputAddress.setValue("cipete");
         await this.inputNote.setValue("test");
-        await this.inputStock.setValue("15");
-        await this.inputCategory.click();
-        await this.closeButton.click();
+    }
+
+    async updateCustomerDetail () {
+        await this.inputName.clearValue();
+        await this.inputName.setValue(" Name Update");
+        await this.inputNote.clearValue();
+        await this.inputNote.setValue(" update");
     }
 
     async saveProduct () {
         await this.saveButton.click();
     }
 
-    async clickUpdateProduct () {
+    async validateSuccessToast () {
+        await expect(this.successToast).toHaveText(
+            expect.stringContaining("success"))
+    }
+
+    async clickUpdateCustomer () {
         await this.threeDotsButton.click();
         await this.updateOption.click();
-        await expect(browser).toHaveUrl('https://kasirdemo.vercel.app/products/00a52c50-a16c-421f-b063-9601fbcdd593/edit');
     }
 
-    async updateProductDetail () {
-        await this.inputDescription.setValue("Update Detail");
-        await this.inputStock.setValue("10");
-        await this.inputCategory.click();
-        await this.closeButton.click();
+    async clickDeleteCustomer () {
+        await this.threeDotsButton.click();
+        await this.deleteOption.click();
     }
 
-
+    async clickDeleteButton () {
+        await this.deleteButton.click();
+    }
 
     open() {
         return super.open('customerx');
