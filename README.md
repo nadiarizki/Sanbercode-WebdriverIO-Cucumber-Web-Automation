@@ -9,4 +9,8 @@ KasirAja - positive and negative scenarios for login, add product, add user and 
 * run command to open allure report "allure open"
 
 ## Sample report
-![Test Result](CheckoutItem_Result.png)
+![Login Test Result](loginreport.png)
+![User CRUD Test Result](userCRUDreport.png)
+![User CRUD Test Result](userCRUDreport2.png)
+![Customer CRUD Test Result](customerCRUDreport.png)
+![Product CRUD Test Result](productCRUDreport.png)

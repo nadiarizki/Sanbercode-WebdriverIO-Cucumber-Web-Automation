@@ -16,7 +16,6 @@ Feature: Customer Management
     And user clicks Save button
     And user should see customer CRUD success toast is displayed
 
-
   @positive
   Scenario: Success Update Customer Details
     When user clicks Customer button
@@ -30,8 +29,8 @@ Feature: Customer Management
   Scenario: Success Delete Customer 
     When user clicks Customer button
     Then user should be redirected to the Customer page
-    # When user clicks delete customer option
-    # And user clicks Delete customer button
-    # And user should see customer CRUD success toast is displayed
+    When user clicks delete customer option
+    And user clicks Delete customer button
+    And user should see customer CRUD success toast is displayed
 
 

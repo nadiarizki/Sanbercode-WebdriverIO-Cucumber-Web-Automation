@@ -83,9 +83,18 @@ class UserPage extends Page {
         await this.saveButton.click();
     }
 
+    async validateAddUserErrorMessage (errorMessage) {
+        await expect(this.errorMessage).toHaveText(
+        expect.stringContaining(errorMessage))
+    }
+
     async clickUpdateUser () {
         await this.threeDotsButton.click();
         await this.updateOption.click();
+    }
+
+    async updateUserDetail () {
+        await this.inputName.setValue("Update User");
     }
 
     async clickDeleteUser () {
@@ -93,21 +102,9 @@ class UserPage extends Page {
         await this.deleteOption.click();
     }
 
-
     async clickDeleteButton () {
         await this.deleteButton.click();
     }
-
-    async updateUserDetail () {
-        await this.inputName.setValue("Update User");
-    }
-
-
-    async validateAddUserErrorMessage (errorMessage) {
-        await expect(this.errorMessage).toHaveText(
-        expect.stringContaining(errorMessage))
-    }
-
 
     async validateSuccessToast () {
         await this.successToast.waitForDisplayed({ timeout: 20000 });
